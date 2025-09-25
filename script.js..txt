@@ -1,0 +1,201 @@
+// Fußball-Quiz — 100 Fragen (leicht, mittel, schwer)
+
+const QUESTIONS = [
+  // ---------------- LEICHT (30) ----------------
+  {q:"Wie viele Spieler stehen pro Mannschaft bei einem Fußballspiel auf dem Feld?",options:["9","10","11","12"],correct:2,difficulty:"easy"},
+  {q:"Wie lange dauert ein reguläres Fußballspiel ohne Nachspielzeit?",options:["60 Minuten","70 Minuten","80 Minuten","90 Minuten"],correct:3,difficulty:"easy"},
+  {q:"Wie nennt man den Ort, von dem ein Elfmeter geschossen wird?",options:["Torlinie","Elfmeterpunkt","Mittellinie","Eckpunkt"],correct:1,difficulty:"easy"},
+  {q:"Welche Farbe hat die Karte, die ein Schiedsrichter bei einer Verwarnung zeigt?",options:["Rot","Gelb","Blau","Grün"],correct:1,difficulty:"easy"},
+  {q:"Wie viele Halbzeiten gibt es in einem Fußballspiel?",options:["1","2","3","4"],correct:1,difficulty:"easy"},
+  {q:"Welche Form hat ein Fußballfeld?",options:["Quadrat","Rechteck","Kreis","Dreieck"],correct:1,difficulty:"easy"},
+  {q:"Mit welchem Körperteil darf ein Feldspieler NICHT den Ball spielen?",options:["Fuß","Kopf","Hand","Brust"],correct:2,difficulty:"easy"},
+  {q:"Wie nennt man das Spiel, wenn beide Mannschaften gleich viele Tore haben?",options:["Sieg","Unentschieden","Niederlage","Elfmeterschießen"],correct:1,difficulty:"easy"},
+  {q:"Wer ist der Torhüter?",options:["Spieler, der Tore schießt","Spieler, der das Tor verteidigt","Trainer","Schiedsrichter"],correct:1,difficulty:"easy"},
+  {q:"Wie groß ist der Durchmesser eines Balls ungefähr (Größe 5)?",options:["22 cm","15 cm","10 cm","30 cm"],correct:0,difficulty:"easy"},
+  {q:"Was zeigt der Schiedsrichter, wenn ein Spieler vom Platz gestellt wird?",options:["Gelbe Karte","Rote Karte","Grüne Karte","Schwarze Karte"],correct:1,difficulty:"easy"},
+  {q:"Wo wird die Weltmeisterschaft ausgetragen?",options:["Immer in Deutschland","Immer in Brasilien","Wechselnde Länder","Nur in Europa"],correct:2,difficulty:"easy"},
+  {q:"Wie nennt man ein Spiel zwischen zwei Nationalmannschaften?",options:["Ligaspiel","Freundschaftsspiel","Länderspiel","Pokalspiel"],correct:2,difficulty:"easy"},
+  {q:"Welche Körperteile darf der Torhüter im Strafraum nutzen?",options:["Nur Füße","Nur Hände","Hände und Füße","Nur Kopf"],correct:2,difficulty:"easy"},
+  {q:"Wie viele Punkte gibt es für einen Sieg in der Bundesliga?",options:["2","3","4","5"],correct:1,difficulty:"easy"},
+  {q:"Was passiert nach 90 Minuten, wenn es im K.-o.-Spiel unentschieden steht?",options:["Spiel endet","Elfmeterschießen sofort","Verlängerung","Nichts"],correct:2,difficulty:"easy"},
+  {q:"Wie oft findet die Fußball-WM statt?",options:["Alle 2 Jahre","Alle 3 Jahre","Alle 4 Jahre","Jedes Jahr"],correct:2,difficulty:"easy"},
+  {q:"Wie viele Spieler darf ein Team maximal einwechseln (aktuelle FIFA-Regeln, Stand 2020er)?",options:["3","5","6","7"],correct:1,difficulty:"easy"},
+  {q:"Welches Land gewann die WM 2014?",options:["Deutschland","Brasilien","Spanien","Argentinien"],correct:0,difficulty:"easy"},
+  {q:"Welcher Spieler gilt als 'Fußballgott' in Deutschland?",options:["Gerd Müller","Franz Beckenbauer","Miroslav Klose","Jürgen Klinsmann"],correct:1,difficulty:"easy"},
+  {q:"Wie viele Tore gibt es pro Spielfeld?",options:["1","2","3","4"],correct:1,difficulty:"easy"},
+  {q:"Welche Farbe hat der Ball meist bei der WM?",options:["Rot","Blau","Weiß mit Mustern","Grün"],correct:2,difficulty:"easy"},
+  {q:"Wie nennt man den Schiedsrichter-Assistenten?",options:["Linienrichter","Pfeifer","Kapitän","Coach"],correct:0,difficulty:"easy"},
+  {q:"Wie viele Spieler muss ein Team mindestens haben, um ein Spiel fortzusetzen?",options:["9","7","5","8"],correct:1,difficulty:"easy"},
+  {q:"Wer trägt meist die Rückennummer 1?",options:["Stürmer","Verteidiger","Torwart","Mittelfeldspieler"],correct:2,difficulty:"easy"},
+  {q:"Welcher Spieler darf das Spiel am Anstoß beginnen?",options:["Beliebiger Spieler","Nur der Torwart","Nur der Kapitän","Nur der Trainer"],correct:0,difficulty:"easy"},
+  {q:"Wie heißt der Wettbewerb, an dem die besten europäischen Vereinsmannschaften teilnehmen?",options:["DFB-Pokal","Champions League","Europa League","Bundesliga"],correct:1,difficulty:"easy"},
+  {q:"Wer ist Rekordtorschütze der deutschen Nationalmannschaft?",options:["Miroslav Klose","Thomas Müller","Gerd Müller","Jürgen Klinsmann"],correct:0,difficulty:"easy"},
+  {q:"Wie heißt der Ballon, der jährlich an den besten Spieler vergeben wird?",options:["Silberball","Goldener Schuh","Ballon d’Or","FIFA-Trophäe"],correct:2,difficulty:"easy"},
+  {q:"Wie nennt man die höchste deutsche Liga?",options:["Bundesliga","Oberliga","Regionalliga","Championship"],correct:0,difficulty:"easy"},
+
+  // ---------------- MITTEL (35) ----------------
+  {q:"Welcher Verein gewann 2020 die Champions League?",options:["Bayern München","Paris Saint-Germain","Liverpool","Real Madrid"],correct:0,difficulty:"medium"},
+  {q:"Wer schoss das Siegtor im WM-Finale 2014?",options:["Mario Götze","Miroslav Klose","Thomas Müller","Mesut Özil"],correct:0,difficulty:"medium"},
+  {q:"Welches Land gewann die erste Fußball-WM 1930?",options:["Brasilien","Argentinien","Uruguay","Italien"],correct:2,difficulty:"medium"},
+  {q:"Welcher Verein wird 'Die Roten Teufel' genannt?",options:["Manchester United","AC Mailand","Benfica Lissabon","Liverpool"],correct:0,difficulty:"medium"},
+  {q:"Wer gewann die EM 2016?",options:["Frankreich","Portugal","Deutschland","Spanien"],correct:1,difficulty:"medium"},
+  {q:"Wie oft wurde Deutschland bisher Weltmeister (bis 2022)?",options:["3","4","5","6"],correct:1,difficulty:"medium"},
+  {q:"Wer war Kapitän der deutschen Nationalmannschaft beim WM-Sieg 1990?",options:["Jürgen Kohler","Lothar Matthäus","Andreas Brehme","Jürgen Klinsmann"],correct:1,difficulty:"medium"},
+  {q:"Welche Mannschaft hat die meisten Champions-League-Titel?",options:["Real Madrid","AC Mailand","FC Bayern","FC Liverpool"],correct:0,difficulty:"medium"},
+  {q:"Wer ist der Rekordtorschütze der Champions League (2020er)?",options:["Lionel Messi","Cristiano Ronaldo","Robert Lewandowski","Karim Benzema"],correct:1,difficulty:"medium"},
+  {q:"Welche Nation war Gastgeber der WM 2002?",options:["Deutschland","Japan und Südkorea","Frankreich","Brasilien"],correct:1,difficulty:"medium"},
+  {q:"Wie viele Mannschaften nehmen aktuell an einer Fußball-WM teil (2022)?",options:["24","28","32","36"],correct:2,difficulty:"medium"},
+  {q:"Wer war Trainer der deutschen Nationalmannschaft 2014?",options:["Jürgen Klinsmann","Joachim Löw","Ottmar Hitzfeld","Franz Beckenbauer"],correct:1,difficulty:"medium"},
+  {q:"Welcher Spieler wird 'La Pulga' genannt?",options:["Cristiano Ronaldo","Lionel Messi","Neymar","Luka Modrić"],correct:1,difficulty:"medium"},
+  {q:"Welche deutsche Mannschaft wird 'Die Knappen' genannt?",options:["Borussia Dortmund","Schalke 04","Hamburger SV","Werder Bremen"],correct:1,difficulty:"medium"},
+  {q:"Welche Stadt ist Heimat des Vereins Juventus?",options:["Rom","Mailand","Turin","Neapel"],correct:2,difficulty:"medium"},
+  {q:"Wie lautet der Spitzname der brasilianischen Nationalmannschaft?",options:["Seleção","La Roja","Squadra Azzurra","Les Bleus"],correct:0,difficulty:"medium"},
+  {q:"Welche deutsche Stadt richtete das WM-Finale 2006 aus?",options:["Berlin","München","Hamburg","Dortmund"],correct:0,difficulty:"medium"},
+  {q:"Welcher Klub spielt im Stadion 'Old Trafford'?",options:["Chelsea","Arsenal","Manchester United","Liverpool"],correct:2,difficulty:"medium"},
+  {q:"Wie viele Spieler stehen bei Verlängerung immer noch pro Team auf dem Feld?",options:["11","10","9","8"],correct:0,difficulty:"medium"},
+  {q:"Welche Position spielte Franz Beckenbauer hauptsächlich?",options:["Stürmer","Libero/Verteidiger","Torwart","Mittelfeld"],correct:1,difficulty:"medium"},
+  {q:"Wer gewann die EM 1996 in England?",options:["England","Deutschland","Frankreich","Spanien"],correct:1,difficulty:"medium"},
+  {q:"Welches Land hat die meisten Weltmeistertitel (bis 2022)?",options:["Deutschland","Italien","Brasilien","Argentinien"],correct:2,difficulty:"medium"},
+  {q:"Wer war Torschützenkönig bei der WM 2006?",options:["Miroslav Klose","Thierry Henry","Ronaldo","Luca Toni"],correct:0,difficulty:"medium"},
+  {q:"Wie heißt das Stadion von Borussia Dortmund?",options:["Olympiastadion","Allianz Arena","Signal Iduna Park","Volksparkstadion"],correct:2,difficulty:"medium"},
+  {q:"Welches Jahr war die erste Bundesliga-Saison?",options:["1963","1970","1950","1968"],correct:0,difficulty:"medium"},
+  {q:"Wer gewann den Ballon d’Or 2021?",options:["Lionel Messi","Cristiano Ronaldo","Robert Lewandowski","Karim Benzema"],correct:0,difficulty:"medium"},
+  {q:"Welche Farbe haben traditionell die Trikots von Real Madrid?",options:["Rot","Weiß","Blau","Schwarz"],correct:1,difficulty:"medium"},
+  {q:"Welche Stadt richtete das WM-Finale 1954 aus?",options:["Bern","Zürich","Basel","Genf"],correct:0,difficulty:"medium"},
+  {q:"Welcher Trainer führte Bayern München 2020 zum Triple?",options:["Hansi Flick","Pep Guardiola","Jupp Heynckes","Carlo Ancelotti"],correct:0,difficulty:"medium"},
+  {q:"Wer war der erste deutsche Spieler, der den Ballon d’Or gewann?",options:["Gerd Müller","Lothar Matthäus","Franz Beckenbauer","Uwe Seeler"],correct:2,difficulty:"medium"},
+  {q:"Wie viele Zuschauer fasst das Wembley-Stadion (ca.)?",options:["40.000","60.000","90.000","120.000"],correct:2,difficulty:"medium"},
+  {q:"Welche Position wird oft auch 'Sechser' genannt?",options:["Innenverteidiger","Defensives Mittelfeld","Rechter Flügel","Torwart"],correct:1,difficulty:"medium"},
+  {q:"Welche Nation gewann die Copa América 2021?",options:["Brasilien","Argentinien","Chile","Uruguay"],correct:1,difficulty:"medium"},
+  {q:"Welcher Spieler wird als 'CR7' bekannt?",options:["Cristiano Ronaldo","Carlos Roberto","Claudio Ranieri","Christian Ramos"],correct:0,difficulty:"medium"},
+  {q:"Welche Farbe hat die Champions-League-Trophäe?",options:["Gold","Silber","Bronze","Rot"],correct:1,difficulty:"medium"},
+
+  // ---------------- SCHWER (35) ----------------
+  {q:"Welcher Spieler hält den Rekord für die meisten Tore in einer Bundesliga-Saison?",options:["Robert Lewandowski","Gerd Müller","Pierre-Emerick Aubameyang","Klaus Fischer"],correct:0,difficulty:"hard"},
+  {q:"Welches Land wurde 1950 Weltmeister?",options:["Brasilien","Uruguay","Italien","Deutschland"],correct:1,difficulty:"hard"},
+  {q:"Wer war Trainer von Real Madrid beim Gewinn der 'La Décima' (10. CL-Titel)?",options:["José Mourinho","Carlo Ancelotti","Zinedine Zidane","Vicente del Bosque"],correct:1,difficulty:"hard"},
+  {q:"Wie viele Tore erzielte Miroslav Klose bei Weltmeisterschaften insgesamt?",options:["14","16","18","20"],correct:1,difficulty:"hard"},
+  {q:"Wer schoss das Siegtor im WM-Finale 1954 für Deutschland?",options:["Helmut Rahn","Fritz Walter","Uwe Seeler","Hans Schäfer"],correct:0,difficulty:"hard"},
+  {q:"Welcher Klub gewann als erster die Champions League dreimal in Folge?",options:["Real Madrid","Ajax","AC Mailand","Bayern München"],correct:0,difficulty:"hard"},
+  {q:"In welchem Jahr wurde die Abseitsregel erstmals eingeführt?",options:["1863","1871","1880","1895"],correct:0,difficulty:"hard"},
+  {q:"Welches Land erreichte 2002 überraschend das WM-Halbfinale?",options:["Südkorea","USA","Senegal","Japan"],correct:0,difficulty:"hard"},
+  {q:"Welcher Spieler wird 'Il Fenomeno' genannt?",options:["Ronaldinho","Ronaldo Nazário","Romário","Rivaldo"],correct:1,difficulty:"hard"},
+  {q:"Welcher Verein ist Rekordsieger des DFB-Pokals?",options:["Schalke 04","Borussia Dortmund","Bayern München","Werder Bremen"],correct:2,difficulty:"hard"},
+  {q:"Wie viele Teams spielen in der Premier League?",options:["18","20","22","24"],correct:1,difficulty:"hard"},
+  {q:"Welche Nationalmannschaft trägt den Spitznamen 'La Roja'?",options:["Spanien","Chile","Portugal","Mexiko"],correct:0,difficulty:"hard"},
+  {q:"Welche Nation gewann die erste Europameisterschaft 1960?",options:["Frankreich","Spanien","Sowjetunion","Deutschland"],correct:2,difficulty:"hard"},
+  {q:"Wer war Kapitän des italienischen Teams beim WM-Sieg 2006?",options:["Gianluigi Buffon","Fabio Cannavaro","Andrea Pirlo","Francesco Totti"],correct:1,difficulty:"hard"},
+  {q:"Welcher Schiedsrichter leitete das WM-Finale 2014?",options:["Howard Webb","Nicola Rizzoli","Björn Kuipers","Mark Clattenburg"],correct:1,difficulty:"hard"},
+  {q:"Welches Land verlor das WM-Finale 1978 gegen Argentinien?",options:["Niederlande","Brasilien","Deutschland","Italien"],correct:0,difficulty:"hard"},
+  {q:"Wer erzielte das 'Tor des Jahrhunderts' 1986?",options:["Diego Maradona","Pelé","Gary Lineker","Michel Platini"],correct:0,difficulty:"hard"},
+  {q:"Welcher deutsche Verein gewann als erster den Europapokal der Landesmeister?",options:["Bayern München","Hamburger SV","Borussia Dortmund","Eintracht Frankfurt"],correct:3,difficulty:"hard"},
+  {q:"Wer war der erste afrikanische Spieler, der den Ballon d’Or gewann?",options:["George Weah","Samuel Eto’o","Didier Drogba","Roger Milla"],correct:0,difficulty:"hard"},
+  {q:"Welche Nation war Gastgeber der WM 1974?",options:["Italien","Deutschland","Argentinien","Spanien"],correct:1,difficulty:"hard"},
+  {q:"Welcher Verein wird 'Die Alte Dame' genannt?",options:["Inter Mailand","Juventus Turin","AS Rom","Lazio Rom"],correct:1,difficulty:"hard"},
+  {q:"Wie viele Tore erzielte Just Fontaine bei der WM 1958?",options:["9","10","13","15"],correct:2,difficulty:"hard"},
+  {q:"Wer war Trainer von Chelsea beim Champions-League-Sieg 2012?",options:["Roberto Di Matteo","José Mourinho","Carlo Ancelotti","Guus Hiddink"],correct:0,difficulty:"hard"},
+  {q:"Welches Land gewann die WM 1982?",options:["Deutschland","Italien","Argentinien","Brasilien"],correct:1,difficulty:"hard"},
+  {q:"Welche Nation gewann die Goldmedaille im Fußball bei Olympia 2016?",options:["Deutschland","Brasilien","Argentinien","Mexiko"],correct:1,difficulty:"hard"},
+  {q:"Welcher Spieler trug den Spitznamen 'El Pibe de Oro'?",options:["Lionel Messi","Diego Maradona","Carlos Valderrama","Raúl"],correct:1,difficulty:"hard"},
+  {q:"In welchem Jahr wurde die Bundesliga gegründet?",options:["1958","1963","1965","1970"],correct:1,difficulty:"hard"},
+  {q:"Welches Land gewann die EM 2004 überraschend?",options:["Griechenland","Portugal","Tschechien","Schweden"],correct:0,difficulty:"hard"},
+  {q:"Welche Farbe hatte der Ball bei der WM 2010 in Südafrika?",options:["Weiß-Gold","Rot-Blau","Schwarz-Weiß","Silber"],correct:0,difficulty:"hard"},
+  {q:"Welcher Spieler erzielte die meisten Tore für Real Madrid (Stand 2020er)?",options:["Cristiano Ronaldo","Raúl","Karim Benzema","Alfredo Di Stéfano"],correct:0,difficulty:"hard"},
+  {q:"Welcher Klub gewann den UEFA-Pokal 1997?",options:["Inter Mailand","Schalke 04","Juventus Turin","Valencia"],correct:1,difficulty:"hard"},
+  {q:"Welche Stadt richtete das EM-Finale 1996 aus?",options:["London","Berlin","Paris","Rom"],correct:0,difficulty:"hard"},
+  {q:"Wer war Torschützenkönig der Bundesliga-Saison 2020/21?",options:["Robert Lewandowski","Erling Haaland","Thomas Müller","André Silva"],correct:0,difficulty:"hard"},
+  {q:"Welches Land gewann die WM 1970?",options:["Deutschland","Italien","Brasilien","Argentinien"],correct:2,difficulty:"hard"},
+  {q:"Welcher deutsche Spieler trug den Spitznamen 'Kaiser'?",options:["Lothar Matthäus","Gerd Müller","Franz Beckenbauer","Oliver Kahn"],correct:2,difficulty:"hard"},
+];
+
+let quizQuestions = [];
+let currentIndex = 0;
+let score = 0;
+
+const setup = document.getElementById("setup");
+const quiz = document.getElementById("quiz");
+const end = document.getElementById("end");
+const startBtn = document.getElementById("startBtn");
+const restartBtn = document.getElementById("restartBtn");
+const nextBtn = document.getElementById("nextBtn");
+const answersContainer = document.getElementById("answers");
+const questionText = document.getElementById("questionText");
+const progress = document.getElementById("progress");
+const scoreEl = document.getElementById("score");
+const difficultyEl = document.getElementById("difficulty");
+const resultText = document.getElementById("resultText");
+const finalScore = document.getElementById("finalScore");
+
+startBtn.addEventListener("click", startQuiz);
+restartBtn.addEventListener("click", () => location.reload());
+nextBtn.addEventListener("click", nextQuestion);
+
+function startQuiz() {
+  const mode = document.getElementById("mode").value;
+  if (mode === "mix") {
+    quizQuestions = [...QUESTIONS];
+  } else {
+    quizQuestions = QUESTIONS.filter(q => q.difficulty === mode);
+  }
+  quizQuestions = shuffle(quizQuestions);
+  setup.classList.add("hidden");
+  quiz.classList.remove("hidden");
+  currentIndex = 0;
+  score = 0;
+  scoreEl.textContent = "Punkte: 0";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  const qObj = quizQuestions[currentIndex];
+  questionText.textContent = qObj.q;
+  difficultyEl.textContent = qObj.difficulty.toUpperCase();
+  qObj.options.forEach((opt,i) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+    btn.classList.add("answer-btn");
+    btn.addEventListener("click", () => selectAnswer(btn, i, qObj.correct));
+    answersContainer.appendChild(btn);
+  });
+  progress.textContent = `${currentIndex+1} / ${quizQuestions.length}`;
+}
+
+function resetState() {
+  answersContainer.innerHTML = "";
+  nextBtn.classList.add("hidden");
+}
+
+function selectAnswer(btn, i, correct) {
+  const buttons = document.querySelectorAll(".answer-btn");
+  buttons.forEach(b => b.classList.add("locked"));
+  if (i === correct) {
+    btn.classList.add("correct");
+    score++;
+    scoreEl.textContent = "Punkte: " + score;
+  } else {
+    btn.classList.add("wrong");
+    buttons[correct].classList.add("correct");
+  }
+  nextBtn.classList.remove("hidden");
+}
+
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex < quizQuestions.length) {
+    showQuestion();
+  } else {
+    endQuiz();
+  }
+}
+
+function endQuiz() {
+  quiz.classList.add("hidden");
+  end.classList.remove("hidden");
+  resultText.textContent = "Du hast das Quiz beendet!";
+  finalScore.textContent = `Dein Ergebnis: ${score} von ${quizQuestions.length} Punkten`;
+}
+
+function shuffle(arr) {
+  return arr.sort(() => Math.random() - 0.5);
+}

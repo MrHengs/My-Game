@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fußball-Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Fußball-Quiz ⚽️</h1>
+      <p class="subtitle">Fußball Fragen in 3 levels🔥</p>
+    </header>
+
+    <section id="setup" class="card">
+      <label for="mode">Schwierigkeitsstufe:</label>
+      <select id="mode">
+        <option value="mix">Gemischt (alle)</option>
+        <option value="easy">Leicht</option>
+        <option value="medium">Mittel</option>
+        <option value="hard">Schwer</option>
+      </select>
+      <button id="startBtn" class="btn">Quiz starten</button>
+    </section>
+
+    <section id="quiz" class="card hidden">
+      <div class="top-row">
+        <div id="difficulty" class="badge">Schwierigkeit</div>
+        <div id="progress">0 / 0</div>
+      </div>
+
+      <div id="questionCard" class="question-card">
+        <div id="questionText" class="question"></div>
+        <div id="answers" class="answers"></div>
+      </div>
+
+      <div class="bottom-row">
+        <div id="score">Punkte: 0</div>
+        <button id="nextBtn" class="btn secondary hidden">Nächste Frage</button>
+      </div>
+    </section>
+
+    <section id="end" class="card hidden">
+      <h2>Spiel vorbei!</h2>
+      <p id="resultText"></p>
+      <p id="finalScore"></p>
+      <button id="restartBtn" class="btn">Nochmal spielen</button>
+    </section>
+
+    <footer class="footer">
+      <small>⚽ Fußball-Quiz — erstellt von Matteo & Henri 💻🖱️</small>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
